@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Todo App</title>
+  <link rel="stylesheet" href="..\static\style.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@700&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+  <div class="container">
+    <div class="heading">
+      <h1>ToDo App</h1>
+    </div>
+
+    <div class="form">
+
+
+      <form class="ui form" action="/add" method="post">
+        <div class="field">
+          <label>Task: </label>
+          <input type="text" name="title" placeholder="Enter Todo...">
+
+          <button class="btn btn-primary" type="submit">Add Task</button>
+        </div>
+      </form>
+    </div>
+    <hr>
+
+    {% for todo in todo_list %}
+    <p>
+    <h3>{{todo.id }}) {{ todo.title }}</h3>
+    </p>
+
+    {% if todo.complete == False %}
+    <span class="badge bg-secondary">Not Complete</span>
+    {% else %}
+    <span class="badge bg-success">Completed</span>
+    {% endif %}
+    <a class="btn btn-primary" href="/update/{{ todo.id }}">Update</a>
+    <a class="btn btn-danger" href="/delete/{{ todo.id }}">Remove Task</a>
+
+    <hr>
+    {% endfor %}
+  </div>
+
+</body>
+
+</html>

@@ -1,0 +1,17 @@
+* {
+  font-family: 'Ubuntu', sans-serif;
+}
+
+body {
+  background-image: url('images/todoimg.jpg');
+}
+
+.heading {
+  text-align: center;
+  margin-top: 50px;
+  margin-bottom: 25px;
+  font-weight: bolder;
+  animation: text 3s 1;
+  letter-spacing: 3px;
+  border: 2mm ridge rgb(245, 245, 245, 0.6);
+}
